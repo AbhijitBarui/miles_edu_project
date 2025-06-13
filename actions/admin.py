@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Action
+from .models import UserActivityLog
 
-admin.site.register(Action)
+admin.site.register(UserActivityLog)

@@ -3,6 +3,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from .models import UserActivityLog
 from .serializers import UserActivityLogSerializer
+from rest_framework.permissions import IsAdminUser
+
 
 class UserActivityLogViewSet(viewsets.ModelViewSet):
     queryset = UserActivityLog.objects.all()
@@ -11,10 +13,6 @@ class UserActivityLogViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-
-        if user.is_staff or user.is_superuser:
-            return UserActivityLog.objects.all()
-
         queryset = UserActivityLog.objects.filter(user=user)
 
         action_type = self.request.query_params.get('action_type')
@@ -29,7 +27,6 @@ class UserActivityLogViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(timestamp__range=[start_date, end_date])
 
         return queryset
-
 
     def perform_create(self, serializer):
         request = self.request
@@ -55,3 +52,24 @@ class UserActivityLogViewSet(viewsets.ModelViewSet):
         activity.status = new_status
         activity.save()
         return Response({"message": f"Status updated to {new_status}"})
+
+    @action(detail=False, methods=['get'], permission_classes=[IsAdminUser])
+    def all_logs(self, request):
+        user_id = request.query_params.get('user_id')
+        username = request.query_params.get('username')
+
+        logs = UserActivityLog.objects.all()
+
+        if user_id:
+            logs = logs.filter(user__id=user_id)
+
+        if username:
+            logs = logs.filter(user__username__icontains=username)
+
+        page = self.paginate_queryset(logs)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(logs, many=True)
+        return Response(serializer.data)

@@ -82,6 +82,13 @@ This Django project demonstrates backend proficiency using Django, Django REST F
 | `/api/actions/activity/{id}/transition/` | PATCH | ✅ | Update log status                        |
 | `/api/actions/activity/all_logs/`| GET    | ✅ (Admin only) | View all user logs              |
 
+
+## 📬 Postman Collection
+
+Import the included collection into Postman to test all endpoints:
+
+📁 File: `MilesEdu_API.postman_collection.json`
+
 ---
 
 ## Running Tests

@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "966188ed-a5a3-428d-a9a6-6695404b2b6d",
+		"name": "Assignment_Interview_Miles_ED",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21390680"
+	},
+	"item": [
+		{
+			"name": "default",
+			"item": [
+				{
+					"name": "login_default",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"abhi@gmail.com\",\n  \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout_default",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0OTkwMDI5NCwiaWF0IjoxNzQ5ODEzODk0LCJqdGkiOiJmZTk0ZDhhZGVmMjE0M2FiODgwNzNkN2JlYzFhNTgwZiIsInVzZXJfaWQiOjF9.IsXsBJ6QZfZcVrUumgilRris55HlmqTxPiYkc8Enj6c\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/token/blacklist/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								"blacklist",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "custom",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"someone@example.com\",\n  \"password\": \"yourpassword\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/accounts/custom-login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								"custom-login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODI1NzgxLCJpYXQiOjE3NDk4MjQ4ODEsImp0aSI6Ijc2NGVlNWI4MzM4ZjRhZmRhODZjNzhmMTM5ZDYyMGExIiwidXNlcl9pZCI6Mn0.Form3EypILRTQBipXsIRDI11E4YL4WfsvuLes3OgWys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0OTkxMTI4MSwiaWF0IjoxNzQ5ODI0ODgxLCJqdGkiOiIyMjZlN2ZiYmQ2YmQ0ZTdiYWZjMTU1ODNkZGNkYzIxNiIsInVzZXJfaWQiOjJ9.ndRD-ipj18qK5TUHLzI1VzlKDNWafk-s-j2DMtrpgT4\"\n}\n"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/accounts/custom-logout/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								"custom-logout",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"someone1@example.com\",\n  \"phone_number\": \"9999998999\",\n  \"full_name\": \"Someone\",\n  \"password\": \"yourpassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/accounts/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "actions",
+			"item": [
+				{
+					"name": "create_activity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODI1ODYxLCJpYXQiOjE3NDk4MjQ5NjEsImp0aSI6IjRkYmQ2ZDE2NTFhNzQ1Yjk5NjEzODY1YzQ2ZmMzNGZmIiwidXNlcl9pZCI6Mn0.N4g-GpGjgEHYBjzGvZiQMBZAcjXUcmh5_0Byo2zzAdk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"action_type\": \"UPLOAD_FILE\",\n  \"description\": \"User Uploaded file succesfully\",\n  \"status\": \"PENDING\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/actions/activity/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"actions",
+								"activity",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transition_status",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODI1ODYxLCJpYXQiOjE3NDk4MjQ5NjEsImp0aSI6IjRkYmQ2ZDE2NTFhNzQ1Yjk5NjEzODY1YzQ2ZmMzNGZmIiwidXNlcl9pZCI6Mn0.N4g-GpGjgEHYBjzGvZiQMBZAcjXUcmh5_0Byo2zzAdk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"DONE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/actions/activity/13/transition/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"actions",
+								"activity",
+								"13",
+								"transition",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list_activities_all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODI1ODYxLCJpYXQiOjE3NDk4MjQ5NjEsImp0aSI6IjRkYmQ2ZDE2NTFhNzQ1Yjk5NjEzODY1YzQ2ZmMzNGZmIiwidXNlcl9pZCI6Mn0.N4g-GpGjgEHYBjzGvZiQMBZAcjXUcmh5_0Byo2zzAdk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/actions/activity/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"actions",
+								"activity",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search_activity",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODE5OTc1LCJpYXQiOjE3NDk4MTkwNzUsImp0aSI6IjE4NmM1ZGMxYTZmOTRlYmY5ZDNmNDYxZTE3ZWExODJjIiwidXNlcl9pZCI6Mn0.4x1g4-qrtL6azZn7a1qc1ReMsGCuFdvuQ87XoqJYeLQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/actions/?search=profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"actions",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "profile"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter_action_type",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODIwOTQwLCJpYXQiOjE3NDk4MjAwNDAsImp0aSI6IjRiMTJmMWM3MTc3NzRiYzM4NzNmOGEyOTU0YWIwZmU2IiwidXNlcl9pZCI6Mn0.NwLij5nF0mrEZNVZ-DfzXsuAzuMMv6k5eOEQLc0ErNI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/actions/activity/?action_type=Log",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"actions",
+								"activity",
+								""
+							],
+							"query": [
+								{
+									"key": "action_type",
+									"value": "Log"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter_date",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODIwOTQwLCJpYXQiOjE3NDk4MjAwNDAsImp0aSI6IjRiMTJmMWM3MTc3NzRiYzM4NzNmOGEyOTU0YWIwZmU2IiwidXNlcl9pZCI6Mn0.NwLij5nF0mrEZNVZ-DfzXsuAzuMMv6k5eOEQLc0ErNI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/actions/activity/?start=2025-06-12&end=2025-06-13",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"actions",
+								"activity",
+								""
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2025-06-12"
+								},
+								{
+									"key": "end",
+									"value": "2025-06-13"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch_log",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODIwOTQwLCJpYXQiOjE3NDk4MjAwNDAsImp0aSI6IjRiMTJmMWM3MTc3NzRiYzM4NzNmOGEyOTU0YWIwZmU2IiwidXNlcl9pZCI6Mn0.NwLij5nF0mrEZNVZ-DfzXsuAzuMMv6k5eOEQLc0ErNI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/actions/activity/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"actions",
+								"activity",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_log",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODIwOTQwLCJpYXQiOjE3NDk4MjAwNDAsImp0aSI6IjRiMTJmMWM3MTc3NzRiYzM4NzNmOGEyOTU0YWIwZmU2IiwidXNlcl9pZCI6Mn0.NwLij5nF0mrEZNVZ-DfzXsuAzuMMv6k5eOEQLc0ErNI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/actions/activity/3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"actions",
+								"activity",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch all logs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODI1ODYxLCJpYXQiOjE3NDk4MjQ5NjEsImp0aSI6IjRkYmQ2ZDE2NTFhNzQ1Yjk5NjEzODY1YzQ2ZmMzNGZmIiwidXNlcl9pZCI6Mn0.N4g-GpGjgEHYBjzGvZiQMBZAcjXUcmh5_0Byo2zzAdk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/actions/activity/all_logs/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"actions",
+								"activity",
+								"all_logs",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

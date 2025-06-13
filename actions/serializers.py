@@ -5,4 +5,4 @@ class UserActivityLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserActivityLog
         fields = '__all__'
-        read_only_fields = ['user', 'timestamp']
+        read_only_fields = ['id', 'user', 'timestamp']

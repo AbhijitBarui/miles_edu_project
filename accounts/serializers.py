@@ -2,20 +2,24 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from accounts.models import User
+from actions.models import UserActivityLog
+
+
 
 class CustomLoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
-    password = serializers.CharField(write_only=True)
+    password = serializers.CharField()
 
-    def validate(self, attrs):
-        email = attrs.get('email')
-        password = attrs.get('password')
+    def validate(self, data):
+        from django.contrib.auth import authenticate
 
-        user = authenticate(username=email, password=password)
-        if not user or not user.is_active:
-            raise serializers.ValidationError("Invalid credentials or inactive user.")
+        user = authenticate(username=data['email'], password=data['password'])
+        if user is None or not user.is_active:
+            raise serializers.ValidationError("Invalid credentials")
 
+        self.user = user  # Attach user here
         refresh = RefreshToken.for_user(user)
+        
         return {
             'refresh': str(refresh),
             'access': str(refresh.access_token),

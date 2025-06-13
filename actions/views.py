@@ -60,16 +60,12 @@ class UserActivityLogViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['patch'])
     def transition(self, request, pk=None):
         activity = self.get_object()
-        new_status = request.data.get('status')
+        serializer = self.get_serializer(activity, data=request.data, partial=True)
 
-        if new_status not in ['PENDING', 'IN_PROGRESS', 'DONE']:
-            return Response({"error": "Invalid status"}, status=400)
-
-        activity.status = new_status
-        activity.save()
-
-        self.invalidate_user_cache(request.user.id)
-        return Response({"message": f"Status updated to {new_status}"})
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": f"Status updated to {serializer.data['status']}"})
+        return Response(serializer.errors, status=400)
 
     @action(detail=False, methods=['get'], permission_classes=[IsAdminUser])
     def all_logs(self, request):

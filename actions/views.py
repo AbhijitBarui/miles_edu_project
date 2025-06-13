@@ -14,18 +14,31 @@ class UserActivityLogViewSet(viewsets.ModelViewSet):
         queryset = UserActivityLog.objects.filter(user=user)
 
         action_type = self.request.query_params.get('action_type')
-        start = self.request.query_params.get('start')
-        end = self.request.query_params.get('end')
+        search = self.request.query_params.get('search')
+        start_date = self.request.query_params.get('start')
+        end_date = self.request.query_params.get('end')
 
         if action_type:
-            queryset = queryset.filter(action_type=action_type)
-        if start and end:
-            queryset = queryset.filter(timestamp__range=[start, end])
+            queryset = queryset.filter(action_type__iexact=action_type)
+
+        if start_date and end_date:
+            queryset = queryset.filter(timestamp__range=[start_date, end_date])
 
         return queryset
 
+
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        request = self.request
+
+        ip_address = request.META.get('REMOTE_ADDR')
+        user_agent = request.META.get('HTTP_USER_AGENT')
+
+        metadata = {
+            "ip": ip_address,
+            "user_agent": user_agent,
+        }
+
+        serializer.save(user=request.user, metadata=metadata)
 
     @action(detail=True, methods=['patch'])
     def transition(self, request, pk=None):

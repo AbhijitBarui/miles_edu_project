@@ -11,6 +11,10 @@ class UserActivityLogViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+
+        if user.is_staff or user.is_superuser:
+            return UserActivityLog.objects.all()
+
         queryset = UserActivityLog.objects.filter(user=user)
 
         action_type = self.request.query_params.get('action_type')
